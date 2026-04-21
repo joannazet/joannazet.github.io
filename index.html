@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Joanna Żamojta — Digital Designer</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #f5f4f0;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+  }
+
+  .cv {
+    background: #ffffff;
+    color: #1a1a18;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 760px;
+    width: 100%;
+    padding: 64px 72px;
+  }
+
+  .header {
+    margin-bottom: 40px;
+    border-bottom: 1.5px solid #1a1a18;
+    padding-bottom: 28px;
+  }
+
+  .header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 42px;
+    font-weight: 400;
+    letter-spacing: -0.5px;
+    color: #1a1a18;
+    line-height: 1.1;
+    margin-bottom: 4px;
+  }
+
+  .header .role {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #E8650A;
+    margin-bottom: 22px;
+  }
+
+  .header-meta {
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: #555;
+  }
+
+  .header-meta a {
+    color: #E8650A;
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(232,101,10,0.3);
+  }
+
+  .header-meta .meta-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .header-meta .meta-label {
+    color: #aaa;
+    font-size: 12px;
+  }
+
+  .summary {
+    margin-bottom: 40px;
+    padding: 18px 22px;
+    border-left: 3px solid #E8650A;
+    background: #FDF6F1;
+  }
+
+  .summary p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #2a2a28;
+  }
+
+  .highlight {
+    color: #E8650A;
+    font-weight: 500;
+  }
+
+  .section {
+    margin-bottom: 36px;
+  }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #E8650A;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #e8e8e5;
+  }
+
+  .entry {
+    margin-bottom: 26px;
+    display: grid;
+    grid-template-columns: 138px 1fr;
+    gap: 0 22px;
+  }
+
+  .entry-date {
+    font-size: 12px;
+    color: #999;
+    padding-top: 2px;
+    line-height: 1.5;
+  }
+
+  .entry-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1a1a18;
+    line-height: 1.3;
+    margin-bottom: 2px;
+  }
+
+  .entry-sub {
+    font-size: 12px;
+    color: #999;
+    margin-bottom: 9px;
+    font-style: italic;
+  }
+
+  .entry-bullets {
+    list-style: none;
+    padding: 0;
+  }
+
+  .entry-bullets li {
+    font-size: 13.5px;
+    line-height: 1.7;
+    color: #333;
+    padding-left: 14px;
+    position: relative;
+    margin-bottom: 5px;
+  }
+
+  .entry-bullets li::before {
+    content: '–';
+    position: absolute;
+    left: 0;
+    color: #E8650A;
+    font-weight: 500;
+  }
+
+  .clients-row {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.8;
+    margin-top: 10px;
+  }
+
+  .clients-row strong {
+    color: #1a1a18;
+    font-weight: 600;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .skill-group-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #1a1a18;
+    margin-bottom: 10px;
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .tag {
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 2px;
+    color: #444;
+    border: 0.5px solid #ddd;
+    background: #fafafa;
+    line-height: 1.3;
+  }
+
+  .tag.accent {
+    background: #FDF1EA;
+    border-color: rgba(232,101,10,0.3);
+    color: #C4530A;
+    font-weight: 500;
+  }
+
+  .tools-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .lang-row {
+    display: flex;
+    gap: 32px;
+  }
+
+  .lang-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: #1a1a18;
+  }
+
+  .lang-level {
+    font-size: 12px;
+    color: #888;
+    margin-top: 1px;
+  }
+
+  .edu-entry {
+    margin-bottom: 14px;
+    display: grid;
+    grid-template-columns: 138px 1fr;
+    gap: 0 22px;
+  }
+
+  .edu-date {
+    font-size: 12px;
+    color: #999;
+    padding-top: 2px;
+  }
+
+  .edu-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1a1a18;
+    margin-bottom: 2px;
+  }
+
+  .edu-inst {
+    font-size: 12.5px;
+    color: #888;
+    font-style: italic;
+    line-height: 1.5;
+  }
+
+  @media print {
+    body { background: white; padding: 0; }
+    .cv { padding: 40px 48px; max-width: 100%; }
+  }
+</style>
+</head>
+<body>
+<div class="cv">
+
+  <div class="header">
+    <h1>Joanna Żamojta</h1>
+    <div class="role">Digital Designer</div>
+    <div class="header-meta">
+      <div class="meta-item">
+        <span class="meta-label">↗</span>
+        <a href="https://jozamo.framer.website">jozamo.framer.website</a>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">↗</span>
+        <a href="https://linktr.ee/jo_zamojta">linktr.ee/jo_zamojta</a>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">✉</span>
+        <a href="mailto:j.zamojta@gmail.com">j.zamojta@gmail.com</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="summary">
+    <p>Visual and digital designer with 9+ years in tech and startup environments, specializing in <span class="highlight">brand identity, motion design, UI/UX, and illustration</span>. I shape digital aesthetics end-to-end — from design system architecture to animated content — and thrive in collaborative, fast-moving teams. Currently based in Poznań, Poland.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Experience</div>
+
+    <div class="entry">
+      <div class="entry-date">June 2016 — Now</div>
+      <div>
+        <div class="entry-title">Freelance Digital Designer &amp; Illustrator</div>
+        <div class="entry-sub">Poznań / Wrocław / Remote</div>
+        <ul class="entry-bullets">
+          <li>Defined and evolved <span class="highlight">digital visual identities</span> for international brands, shaping bold, consistent aesthetics across platforms</li>
+          <li>Produced <span class="highlight">explainer animations and motion content</span> using After Effects; designed social media visuals and product launch campaigns</li>
+          <li>Built and maintained <span class="highlight">design systems</span> ensuring coherence across all digital touchpoints</li>
+          <li>Designed conversion-optimised landing pages and UI prototypes; collaborated with UI/UX teams to bridge brand and product</li>
+          <li>Experimented with <span class="highlight">AI tools</span> to accelerate creative workflows and visual ideation</li>
+        </ul>
+        <div class="clients-row">
+          <strong>Clients:</strong> Lingoda, Ecosia, Contentoo, Sendcloud, Sololearn, Bonavi, Careship, Hoppilow, Pflegetiger, Landschaft, Müller Poland, VeryNiceWorks, ProvolveIT
+        </div>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-date">2021</div>
+      <div>
+        <div class="entry-title">Brand Designer</div>
+        <div class="entry-sub">Moodiphy — Wrocław / Remote</div>
+        <ul class="entry-bullets">
+          <li>Strengthened visual presence for lifestyle e-commerce brands <span class="highlight">Phlov, MomMe, and Alkemie</span> — creating brand assets that were fresh, trend-aware, and commercially driven</li>
+          <li>Designed e-commerce landing pages and web assets to support online growth</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-date">2015 — 2016</div>
+      <div>
+        <div class="entry-title">In-House Designer &amp; Illustrator</div>
+        <div class="entry-sub">Wimdu — Berlin / Remote &amp; On-site</div>
+        <ul class="entry-bullets">
+          <li>Shaped Wimdu's digital marketing aesthetic across CRM, newsletters, social media, and landing pages</li>
+          <li>Developed <span class="highlight">UI elements, infographics, and illustrations</span> supporting digital products</li>
+          <li>Participated in usability testing and research to improve product experience</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Volunteer &amp; Side Projects</div>
+
+    <div class="entry">
+      <div class="entry-date"></div>
+      <div>
+        <div class="entry-title">Django Girls — Co-Organiser</div>
+        <div class="entry-sub">Women's programming initiative</div>
+        <ul class="entry-bullets">
+          <li>Led sponsor outreach, marketing materials, PR and event logistics for a recurring women-in-tech workshop</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-date"></div>
+      <div>
+        <div class="entry-title">UI Design &amp; Branding — <em>Barfny Kalkulator</em></div>
+        <div class="entry-sub">Mobile app · <a href="https://play.google.com/store/apps/details?id=com.BARFnyKalkulator.barfny_kalkulator_kot&hl=pl" style="color:#E8650A; text-decoration:none; border-bottom: 1px solid rgba(232,101,10,0.3);">Google Play</a></div>
+        <ul class="entry-bullets">
+          <li>Designed UI and visual identity for a mobile app helping cat owners calculate BARF diet portions — published on Google Play</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Skills</div>
+    <div class="skills-grid">
+      <div>
+        <div class="skill-group-label">Design</div>
+        <div class="skill-tags">
+          <span class="tag accent">Brand &amp; Visual Identity</span>
+          <span class="tag accent">Motion Design</span>
+          <span class="tag accent">Design Systems</span>
+          <span class="tag">UI/UX Design</span>
+          <span class="tag">Illustration</span>
+          <span class="tag">Responsive Design</span>
+          <span class="tag">Prototyping</span>
+          <span class="tag">Wireframing</span>
+          <span class="tag">Interaction Design</span>
+        </div>
+      </div>
+      <div>
+        <div class="skill-group-label">Research &amp; Strategy</div>
+        <div class="skill-tags">
+          <span class="tag">User Research</span>
+          <span class="tag">Usability Testing</span>
+          <span class="tag">Customer Journey Mapping</span>
+          <span class="tag">Personas</span>
+          <span class="tag">Information Architecture</span>
+          <span class="tag">Trend Research</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Tools</div>
+    <div class="tools-row">
+      <span class="tag accent">Figma</span>
+      <span class="tag accent">After Effects</span>
+      <span class="tag accent">Framer</span>
+      <span class="tag accent">Adobe Illustrator</span>
+      <span class="tag">Photoshop</span>
+      <span class="tag">InDesign</span>
+      <span class="tag">Adobe XD</span>
+      <span class="tag">Sketch</span>
+      <span class="tag">Webflow</span>
+      <span class="tag">Procreate</span>
+      <span class="tag">Basic HTML &amp; CSS</span>
+      <span class="tag">AI tools</span>
+      <span class="tag">Pen + Paper</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Education</div>
+
+    <div class="edu-entry">
+      <div class="edu-date">Oct 2024 – Dec 2024</div>
+      <div>
+        <div class="edu-title">Python Programming Basics</div>
+        <div class="edu-inst">Association Robisz.to — 60h, OOP, web &amp; desktop app development</div>
+      </div>
+    </div>
+
+    <div class="edu-entry">
+      <div class="edu-date">2020 – 2022</div>
+      <div>
+        <div class="edu-title">Design Courses &amp; Mentorships</div>
+        <div class="edu-inst">UI Design — Infoshare Academy · Digital Designer — Design Practice · UI Mentee — Dare IT · Motion Design — Adobe After Effects</div>
+      </div>
+    </div>
+
+    <div class="edu-entry">
+      <div class="edu-date">Oct 2021 – Feb 2023</div>
+      <div>
+        <div class="edu-title">Postgraduate Studies in Art &amp; Design</div>
+        <div class="edu-inst">Eugeniusz Geppert Academy of Fine Arts, Wrocław · Screenprinting, lithography, ceramics, industrial design, graphic design, textile art, furniture design</div>
+      </div>
+    </div>
+
+    <div class="edu-entry">
+      <div class="edu-date">2005 – 2010</div>
+      <div>
+        <div class="edu-title">MA Cultural Studies</div>
+        <div class="edu-inst">University of Wrocław</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Languages</div>
+    <div class="lang-row">
+      <div>
+        <div class="lang-name">Polish</div>
+        <div class="lang-level">Native</div>
+      </div>
+      <div>
+        <div class="lang-name">English</div>
+        <div class="lang-level">Advanced — C1</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
