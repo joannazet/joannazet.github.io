@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Joanna Żamojta</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #f2f0eb;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    font-family: 'DM Sans', Helvetica, Arial, sans-serif;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .sheet {
+    background: #fff;
+    width: 210mm;
+    min-height: 297mm;
+    padding: 64px 68px 56px;
+    position: relative;
+  }
+
+  /* accent bar */
+  .sheet::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 6px; height: 100%;
+    background: #E8650A;
+  }
+
+  /* ── HEADER ── */
+  .hd {
+    border-bottom: 1.5px solid #1a1a18;
+    padding-bottom: 24px;
+    margin-bottom: 36px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .hd h1 {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 38px;
+    font-weight: 400;
+    letter-spacing: -0.5px;
+    line-height: 1.05;
+    color: #1a1a18;
+  }
+
+  .hd-right {
+    text-align: right;
+    font-size: 11px;
+    color: #999;
+    line-height: 1.9;
+  }
+
+  .hd-right a {
+    color: #E8650A;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  /* ── SECTION LABEL ── */
+  .sl {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #E8650A;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .sl::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #eee;
+  }
+
+  /* ── INTRO QUOTE ── */
+  .intro {
+    border-left: 3px solid #E8650A;
+    padding: 16px 22px;
+    background: #FDF6F1;
+    margin-bottom: 36px;
+    font-size: 14px;
+    line-height: 1.8;
+    color: #2a2a28;
+    font-style: italic;
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-weight: 400;
+  }
+
+  .intro em {
+    color: #E8650A;
+    font-style: normal;
+  }
+
+  /* ── 2-COL AREAS ── */
+  .areas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 36px;
+  }
+
+  .area {
+    border: 0.5px solid #e8e8e5;
+    padding: 18px 20px 16px;
+    position: relative;
+  }
+
+  .area-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: #1a1a18;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .area-dot {
+    width: 6px;
+    height: 6px;
+    background: #E8650A;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .area-body {
+    font-size: 12px;
+    color: #555;
+    line-height: 1.75;
+  }
+
+  .area-body strong {
+    color: #1a1a18;
+    font-weight: 500;
+  }
+
+  /* ── TRAITS ── */
+  .traits {
+    margin-bottom: 36px;
+  }
+
+  .traits-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+  }
+
+  .trait {
+    padding: 12px 14px;
+    border-left: 2px solid #E8650A;
+    background: #fafafa;
+  }
+
+  .trait-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: #1a1a18;
+    margin-bottom: 3px;
+  }
+
+  .trait-body {
+    font-size: 11px;
+    color: #777;
+    line-height: 1.6;
+  }
+
+  /* ── TOOLS ROW ── */
+  .tools-section { margin-bottom: 36px; }
+
+  .tools-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+  }
+
+  .tag {
+    font-size: 11px;
+    padding: 5px 11px;
+    border: 0.5px solid #ddd;
+    color: #555;
+    background: #fafafa;
+    border-radius: 2px;
+  }
+
+  .tag.h {
+    background: #FDF1EA;
+    border-color: rgba(232,101,10,0.35);
+    color: #C4530A;
+    font-weight: 600;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    border-top: 1px solid #eee;
+    padding-top: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    color: #aaa;
+  }
+
+  .footer a { color: #E8650A; text-decoration: none; font-weight: 500; }
+
+  @media print {
+    body { background: white; padding: 0; }
+    .sheet { box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <!-- HEADER -->
+  <div class="hd">
+    <h1>Joanna Żamojta</h1>
+    <div class="hd-right">
+      <a href="mailto:j.zamojta@gmail.com">j.zamojta@gmail.com</a><br>
+      531 483 381<br>
+      <a href="https://jozamo.framer.website">jozamo.framer.website</a>
+    </div>
+  </div>
+
+  <!-- INTRO -->
+  <div class="intro">
+    Czuję się najlepiej w projektach, gdzie estetyka jest przemyślana, marka ma charakter,
+    a współpraca opiera się na zaufaniu — nie tylko na briefie.
+    Lubię rozumieć firmę, którą projektuję, i zostawiać rozwiązania,
+    z których <em>inni mogą korzystać samodzielnie</em>.
+  </div>
+
+  <!-- WHERE I THRIVE -->
+  <div class="sl">Gdzie się odnajduję</div>
+  <div class="areas">
+
+    <div class="area">
+      <div class="area-title"><span class="area-dot"></span>Branże z duszą i estetyką</div>
+      <div class="area-body">Beauty, wellness, mom &amp; baby, lifestyle, kultura, edtech. Pracowałam przy <strong>Phlov, Alkemie i MomMe</strong> — wiem, jak wygląda delikatna, spójna estetyka w tym segmencie i jak ją utrzymać w materiałach wdrożeniowych.</div>
+    </div>
+
+    <div class="area">
+      <div class="area-title"><span class="area-dot"></span>System + kreatywność jednocześnie</div>
+      <div class="area-body">Najlepiej pracuję, kiedy jest gotowy brand guidelines — i mogę w jego ramach proponować własne rozwiązania. Nie czekam na każdą decyzję. Rozumiem różnicę między "w ramach marki" a "dokładnie tak jak ostatnio".</div>
+    </div>
+
+    <div class="area">
+      <div class="area-title"><span class="area-dot"></span>Środowiska międzynarodowe</div>
+      <div class="area-body">Pracowałam w Berlinie (Wimdu), mieszkałam w Kanadzie. Angielski C1 w codziennym użyciu — korespondencja, briefy, prezentacje. Praca z zagranicznymi klientami to moja norma, nie wyjątek.</div>
+    </div>
+
+    <div class="area">
+      <div class="area-title"><span class="area-dot"></span>Wielowątkowe projekty freelance</div>
+      <div class="area-body">9+ lat pracy z kilkunastoma klientami równocześnie — Lingoda, Ecosia, Sendcloud, Contentoo. Umiem organizować własną pracę, dotrzymywać terminów i komunikować postęp bez micromanagementu.</div>
+    </div>
+
+    <div class="area">
+      <div class="area-title"><span class="area-dot"></span>Motion jako narzędzie, nie ozdoba</div>
+      <div class="area-body">After Effects, Lottie, Jitter, Rive — w regularnym użyciu. Animowane social media, explainery, onboarding. Motion traktuję jako element systemu marki, nie dodatek do projektu.</div>
+    </div>
+
+    <div class="area">
+      <div class="area-title"><span class="area-dot"></span>Długoterminowa współpraca</div>
+      <div class="area-body">Wolę być częścią projektu niż dostawcą plików. Kilka moich współprac trwa latami — znam kontekst marki, rozumiem jej rytm i mogę działać samodzielnie bez ponownego tłumaczenia wszystkiego od zera.</div>
+    </div>
+
+  </div>
+
+  <!-- TRAITS -->
+  <div class="traits">
+    <div class="sl">Jak pracuję</div>
+    <div class="traits-grid">
+
+      <div class="trait">
+        <div class="trait-title">Dokładna i terminowa</div>
+        <div class="trait-body">Finalne pliki zawsze gotowe do eksportu, nazwane i zorganizowane. Terminy traktuję poważnie — uprzedzam z wyprzedzeniem, jeśli coś się zmienia.</div>
+      </div>
+
+      <div class="trait">
+        <div class="trait-title">Piszę i redaguję</div>
+        <div class="trait-body">Tworzę treści marketingowe po polsku i po angielsku — newslettery, posty, opisy produktów. Rozumiem, że obraz i słowo muszą działać razem.</div>
+      </div>
+
+      <div class="trait">
+        <div class="trait-title">Technicznie świadoma</div>
+        <div class="trait-body">Podstawy HTML/CSS, Python, praca z deweloperami po stronie klienta. Projektuję z myślą o wdrożeniu — nie tylko o tym, jak wygląda w Figmie.</div>
+      </div>
+
+      <div class="trait">
+        <div class="trait-title">Szybko adaptowalna</div>
+        <div class="trait-body">Różne branże, różne estetyki, różne narzędzia. Przystosowuję styl do marki — nie narzucam jednego "mojego" podejścia każdemu klientowi.</div>
+      </div>
+
+      <div class="trait">
+        <div class="trait-title">Proaktywna</div>
+        <div class="trait-body">Zgłaszam, jeśli widzę coś do poprawy — nawet jeśli nie leży w zakresie zlecenia. Myślę o projekcie szerzej niż o bieżącym zadaniu.</div>
+      </div>
+
+      <div class="trait">
+        <div class="trait-title">Miłośniczka dobrego designu</div>
+        <div class="trait-body">Śledzę trendy w beauty i wellness, regularnie przeglądam Dribbble, Are.na, blogi brandingowe. Wiem, co wygląda świeżo, a co jest już przebrzmiałe.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TOOLS -->
+  <div class="tools-section">
+    <div class="sl">Narzędzia</div>
+    <div class="tools-row">
+      <span class="tag h">Figma</span>
+      <span class="tag h">After Effects</span>
+      <span class="tag h">Lottie / Jitter / Rive</span>
+      <span class="tag h">Adobe Illustrator</span>
+      <span class="tag h">Framer</span>
+      <span class="tag">Photoshop</span>
+      <span class="tag">InDesign</span>
+      <span class="tag">Procreate</span>
+      <span class="tag">Webflow</span>
+      <span class="tag">Notion / Slack / Jira</span>
+      <span class="tag">HTML &amp; CSS</span>
+      <span class="tag">Narzędzia AI</span>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <span>Joanna Żamojta · 2026</span>
+    <span><a href="https://jozamo.framer.website">jozamo.framer.website</a> · <a href="https://dribbble.com/joannaz">dribbble.com/joannaz</a></span>
+  </div>
+
+</div>
+</body>
+</html>
