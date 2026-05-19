@@ -3,490 +3,546 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Joanna Żamojta — Digital Designer</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<title>Joanna Żamojta — Brand & Motion Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --green: #1a3d2b;
+    --lime: #c8f04a;
+    --ink: #111;
+    --muted: #666;
+    --border: rgba(0,0,0,0.1);
+    --bg: #f8f7f4;
+    --white: #ffffff;
+  }
+
+  html { font-size: 16px; }
 
   body {
-    background: #f5f4f0;
-    display: flex;
-    justify-content: center;
-    padding: 40px 20px;
-  }
-
-  .cv {
-    background: #ffffff;
-    color: #1a1a18;
     font-family: 'DM Sans', sans-serif;
-    font-size: 14px;
+    background: var(--bg);
+    color: var(--ink);
     line-height: 1.6;
-    max-width: 760px;
-    width: 100%;
-    padding: 64px 72px;
+    -webkit-font-smoothing: antialiased;
   }
 
-  .header {
-    margin-bottom: 40px;
-    border-bottom: 1.5px solid #1a1a18;
-    padding-bottom: 28px;
+  /* ── LAYOUT ── */
+  .page {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
   }
 
-  .header h1 {
-    font-family: 'DM Serif Display', serif;
-    font-size: 42px;
+  /* ── HEADER ── */
+  header {
+    background: var(--green);
+    color: var(--white);
+    padding: 48px 24px 40px;
+    margin-bottom: 0;
+  }
+
+  .header-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 32px;
+    align-items: end;
+  }
+
+  .name {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(32px, 6vw, 52px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    margin-bottom: 8px;
+    color: var(--white);
+  }
+
+  .name span {
+    color: var(--lime);
+  }
+
+  .title {
+    font-size: 14px;
     font-weight: 400;
-    letter-spacing: -0.5px;
-    color: #1a1a18;
-    line-height: 1.1;
-    margin-bottom: 4px;
-  }
-
-  .header .role {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 2.5px;
+    color: rgba(255,255,255,0.65);
+    letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: #E8650A;
-    margin-bottom: 22px;
+    margin-bottom: 20px;
   }
 
-  .header-meta {
+  .tagline {
+    font-size: 16px;
+    color: rgba(255,255,255,0.85);
+    max-width: 480px;
+    line-height: 1.6;
+  }
+
+  .contact-block {
+    text-align: right;
     display: flex;
-    gap: 28px;
-    flex-wrap: wrap;
-    font-size: 13px;
-    color: #555;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-end;
   }
 
-  .header-meta a {
-    color: #E8650A;
+  .contact-block a {
+    color: rgba(255,255,255,0.75);
     text-decoration: none;
-    font-weight: 500;
-    border-bottom: 1px solid rgba(232,101,10,0.3);
-  }
-
-  .header-meta .meta-item {
+    font-size: 13px;
+    transition: color 0.15s;
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 6px;
   }
 
-  .header-meta .meta-label {
-    color: #aaa;
+  .contact-block a:hover { color: var(--lime); }
+
+  .contact-block .pill {
+    background: var(--lime);
+    color: var(--green);
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
     font-size: 12px;
+    padding: 6px 14px;
+    border-radius: 99px;
+    letter-spacing: 0.03em;
+    margin-bottom: 4px;
+    text-decoration: none;
   }
 
-  .summary {
-    margin-bottom: 40px;
-    padding: 18px 22px;
-    border-left: 3px solid #E8650A;
-    background: #FDF6F1;
-  }
-
-  .summary p {
-    font-size: 14px;
-    line-height: 1.8;
-    color: #2a2a28;
-  }
-
-  .highlight {
-    color: #E8650A;
-    font-weight: 500;
-  }
-
+  /* ── SECTIONS ── */
   .section {
-    margin-bottom: 36px;
+    padding-top: 40px;
+    border-top: 0.5px solid var(--border);
+    margin-top: 40px;
   }
+
+  .section:first-of-type { margin-top: 40px; }
 
   .section-label {
+    font-family: 'Syne', sans-serif;
     font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 2.5px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: #E8650A;
-    margin-bottom: 18px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
+    color: var(--muted);
+    margin-bottom: 24px;
   }
 
-  .section-label::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: #e8e8e5;
-  }
-
-  .entry {
-    margin-bottom: 26px;
+  /* ── EXPERIENCE ── */
+  .job {
     display: grid;
-    grid-template-columns: 138px 1fr;
-    gap: 0 22px;
+    grid-template-columns: 120px 1fr;
+    gap: 0 24px;
+    margin-bottom: 32px;
+    padding-bottom: 32px;
+    border-bottom: 0.5px solid var(--border);
   }
 
-  .entry-date {
-    font-size: 12px;
-    color: #999;
+  .job:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+  .job-meta {
     padding-top: 2px;
+  }
+
+  .job-period {
+    font-size: 11px;
+    color: var(--muted);
     line-height: 1.5;
+    font-weight: 400;
   }
 
-  .entry-title {
-    font-size: 15px;
-    font-weight: 600;
-    color: #1a1a18;
-    line-height: 1.3;
-    margin-bottom: 2px;
+  .job-company {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--green);
+    margin-top: 4px;
   }
 
-  .entry-sub {
-    font-size: 12px;
-    color: #999;
-    margin-bottom: 9px;
+  .job-location {
+    font-size: 10px;
+    color: var(--muted);
+    margin-top: 2px;
     font-style: italic;
   }
 
-  .entry-bullets {
-    list-style: none;
-    padding: 0;
+  .job-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 8px;
   }
 
-  .entry-bullets li {
-    font-size: 13.5px;
-    line-height: 1.7;
-    color: #333;
+  .job-desc {
+    font-size: 13px;
+    color: #444;
+    line-height: 1.65;
+  }
+
+  .job-desc ul {
+    padding-left: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 8px;
+  }
+
+  .job-desc li {
+    font-size: 13px;
+    color: #444;
     padding-left: 14px;
     position: relative;
-    margin-bottom: 5px;
+    line-height: 1.55;
   }
 
-  .entry-bullets li::before {
-    content: '–';
+  .job-desc li::before {
+    content: '—';
     position: absolute;
     left: 0;
-    color: #E8650A;
+    color: var(--muted);
+    font-size: 11px;
+    top: 2px;
+  }
+
+  .clients-line {
+    margin-top: 12px;
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .clients-line strong {
+    color: var(--ink);
     font-weight: 500;
   }
 
-  .clients-row {
-    font-size: 13px;
-    color: #666;
-    line-height: 1.8;
-    margin-top: 10px;
-  }
-
-  .clients-row strong {
-    color: #1a1a18;
-    font-weight: 600;
-  }
-
+  /* ── SKILLS GRID ── */
   .skills-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 0.5px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
   }
 
-  .skill-group-label {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
+  .skill-block {
+    background: var(--white);
+    padding: 16px 18px;
+  }
+
+  .skill-block-label {
+    font-size: 10px;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: #1a1a18;
-    margin-bottom: 10px;
+    color: var(--muted);
+    margin-bottom: 8px;
   }
 
   .skill-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 6px;
+    gap: 5px;
   }
 
   .tag {
-    font-size: 12px;
-    padding: 4px 10px;
-    border-radius: 2px;
-    color: #444;
-    border: 0.5px solid #ddd;
-    background: #fafafa;
-    line-height: 1.3;
+    font-size: 11px;
+    padding: 3px 9px;
+    border-radius: 99px;
+    border: 0.5px solid var(--border);
+    color: var(--ink);
+    background: var(--bg);
+    white-space: nowrap;
   }
 
-  .tag.accent {
-    background: #FDF1EA;
-    border-color: rgba(232,101,10,0.3);
-    color: #C4530A;
+  .tag.highlight {
+    background: var(--lime);
+    border-color: transparent;
+    color: var(--green);
     font-weight: 500;
   }
 
-  .tools-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-  }
-
-  .lang-row {
-    display: flex;
-    gap: 32px;
-  }
-
-  .lang-name {
-    font-size: 14px;
-    font-weight: 500;
-    color: #1a1a18;
-  }
-
-  .lang-level {
-    font-size: 12px;
-    color: #888;
-    margin-top: 1px;
-  }
-
-  .edu-entry {
-    margin-bottom: 14px;
+  /* ── EDUCATION ── */
+  .edu-grid {
     display: grid;
-    grid-template-columns: 138px 1fr;
-    gap: 0 22px;
+    grid-template-columns: 120px 1fr;
+    gap: 0 24px;
+    margin-bottom: 20px;
   }
 
-  .edu-date {
-    font-size: 12px;
-    color: #999;
+  .edu-period {
+    font-size: 11px;
+    color: var(--muted);
     padding-top: 2px;
+    line-height: 1.4;
   }
 
   .edu-title {
-    font-size: 14px;
-    font-weight: 600;
-    color: #1a1a18;
+    font-weight: 500;
+    font-size: 13px;
+    color: var(--ink);
     margin-bottom: 2px;
   }
 
-  .edu-inst {
-    font-size: 12.5px;
-    color: #888;
-    font-style: italic;
+  .edu-desc {
+    font-size: 12px;
+    color: var(--muted);
     line-height: 1.5;
   }
 
+  /* ── LANGUAGES ── */
+  .lang-row {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .lang-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+  }
+
+  .lang-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--green);
+    flex-shrink: 0;
+  }
+
+  .lang-dot.muted { background: var(--muted); opacity: 0.4; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--green);
+    color: rgba(255,255,255,0.5);
+    font-size: 11px;
+    text-align: center;
+    padding: 20px 24px;
+    letter-spacing: 0.04em;
+  }
+
+  footer a { color: var(--lime); text-decoration: none; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .header-inner { grid-template-columns: 1fr; }
+    .contact-block { text-align: left; align-items: flex-start; }
+    .job { grid-template-columns: 1fr; gap: 4px; }
+    .job-meta { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-bottom: 6px; }
+    .edu-grid { grid-template-columns: 1fr; gap: 2px; }
+    .edu-period { font-size: 10px; }
+  }
+
   @media print {
-    body { background: white; padding: 0; }
-    .cv { padding: 40px 48px; max-width: 100%; }
+    body { background: white; }
+    header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .section { page-break-inside: avoid; }
   }
 </style>
 </head>
 <body>
-<div class="cv">
 
-  <div class="header">
-    <h1>Joanna Żamojta</h1>
-    <div class="role">Digital, Brand & Motion Designer for SaaS & tech – visual systems, campaigns, motion.</div>
-    <div class="header-meta">
-      <div class="meta-item">
-        <span class="meta-label">↗</span>
-        <a href="https://jozamo.framer.website">jozamo.framer.website</a>
-      </div>
-      <div class="meta-item">
-        <span class="meta-label">↗</span>
-        <a href="https://linktr.ee/jo_zamojta">linktr.ee/jo_zamojta</a>
-      </div>
-      <div class="meta-item">
-        <span class="meta-label">✉</span>
-        <a href="mailto:j.zamojta@gmail.com">j.zamojta@gmail.com</a>
-      </div>
+<header>
+  <div class="header-inner">
+    <div>
+      <p class="title">Brand & Motion Designer</p>
+      <h1 class="name">Joanna <span>Żamojta</span></h1>
+      <p class="tagline">10+ years building brand systems, motion content, and visual identities for international tech companies and startups — often as the only designer in the room.</p>
+    </div>
+    <div class="contact-block">
+      <a href="https://jozamo.framer.website" class="pill">View portfolio ↗</a>
+      <a href="mailto:j.zamojta@gmail.com">j.zamojta@gmail.com</a>
+      <a href="https://linkedin.com/in/joannazamojta">linkedin.com/in/joannazamojta</a>
+      <a href="https://behance.net/joannazamojta">behance.net/joannazamojta</a>
+      <a href="#">Poznań, Poland · Remote</a>
     </div>
   </div>
+</header>
 
-  <div class="summary">
-    <p>Visual and digital designer with 9+ years in tech and startup environments, specializing in <span class="highlight">brand identity, motion design, UI/UX, and illustration</span>. I shape digital aesthetics end-to-end — from design system architecture to animated content — and thrive in collaborative, fast-moving teams. Currently based in Poznań, Poland.</p>
-  </div>
+<div class="page">
 
+  <!-- EXPERIENCE -->
   <div class="section">
-    <div class="section-label">Experience</div>
+    <p class="section-label">Experience</p>
 
-    <div class="entry">
-      <div class="entry-date">June 2016 — Now</div>
-      <div>
-        <div class="entry-title">Freelance Digital Designer &amp; Illustrator</div>
-        <div class="entry-sub">Poznań / Wrocław / Remote</div>
-        <ul class="entry-bullets">
-          <li>Defined and evolved <span class="highlight">digital visual identities</span> for international brands, shaping bold, consistent aesthetics across platforms</li>
-          <li>Produced <span class="highlight">explainer animations and motion content</span> using After Effects; designed social media visuals and product launch campaigns</li>
-          <li>Built and maintained <span class="highlight">design systems</span> ensuring coherence across all digital touchpoints</li>
-          <li>Designed conversion-optimised landing pages and UI prototypes; collaborated with UI/UX teams to bridge brand and product</li>
-          <li>Experimented with <span class="highlight">AI tools</span> to accelerate creative workflows and visual ideation</li>
-        </ul>
-        <div class="clients-row">
-          <strong>Clients:</strong> Lingoda, Ecosia, Contentoo, Sendcloud, Sololearn, Bonavi, Careship, Hoppilow, Pflegetiger, Landschaft, Müller Poland, VeryNiceWorks, ProvolveIT
+    <div class="job">
+      <div class="job-meta">
+        <div class="job-period">2016 — present</div>
+        <div class="job-company">Freelance</div>
+        <div class="job-location">Remote / worldwide</div>
+      </div>
+      <div class="job-content">
+        <div class="job-title">Senior Brand & Motion Designer</div>
+        <div class="job-desc">
+          <ul>
+            <li>Built and extended visual identities for international B2B and SaaS brands — brand books, design systems, and scalable template libraries</li>
+            <li>Produced explainer animations, animated infographics, and campaign motion in After Effects — from storyboard to final export</li>
+            <li>Designed landing pages, social campaigns, and digital advertising assets for weekly multi-market distribution</li>
+            <li>Presented design rationale directly to founders, marketing leads, and C-level stakeholders in English</li>
+            <li>Used AI tools (Figma Make, Claude, Gemini) to accelerate ideation and workflow</li>
+          </ul>
+          <p class="clients-line"><strong>Clients:</strong> Lingoda · Ecosia · Sololearn · Sendcloud · Contentoo · Bonavi · Careship · Pflegetiger · Hoppilow · Landschaft · Müller Poland · VeryNiceWorks · ProvolveIT · Nanores · Zwei Café</p>
         </div>
       </div>
     </div>
 
-    <div class="entry">
-      <div class="entry-date">2021</div>
-      <div>
-        <div class="entry-title">Brand Designer</div>
-        <div class="entry-sub">Moodiphy — Wrocław / Remote</div>
-        <ul class="entry-bullets">
-          <li>Strengthened visual presence for lifestyle e-commerce brands <span class="highlight">Phlov, MomMe, and Alkemie</span> — creating brand assets that were fresh, trend-aware, and commercially driven</li>
-          <li>Designed e-commerce landing pages and web assets to support online growth</li>
-        </ul>
+    <div class="job">
+      <div class="job-meta">
+        <div class="job-period">2021</div>
+        <div class="job-company">Moodiphy</div>
+        <div class="job-location">Wrocław / Remote</div>
+      </div>
+      <div class="job-content">
+        <div class="job-title">Brand Designer</div>
+        <div class="job-desc">
+          <ul>
+            <li>Strengthened visual presence for lifestyle e-commerce brands Phlov, MomMe, and Alkemie — trend-aware, commercially driven brand assets</li>
+            <li>Designed e-commerce landing pages and web assets to support online growth</li>
+          </ul>
+        </div>
       </div>
     </div>
 
-    <div class="entry">
-      <div class="entry-date">Mar 2015 — Jul 2016</div>
-      <div>
-        <div class="entry-title">In-House Brand Designer &amp; Illustrator</div>
-        <div class="entry-sub">Wimdu — Berlin / Remote &amp; On-site</div>
-        <ul class="entry-bullets">
-          <li>Shaped Wimdu's digital marketing aesthetic across CRM, newsletters, social media, and landing pages</li>
-          <li>Developed <span class="highlight">UI elements, infographics, and illustrations</span> supporting digital products</li>
-          <li>Participated in usability testing and research to improve product experience</li>
-        </ul>
+    <div class="job">
+      <div class="job-meta">
+        <div class="job-period">2015 — 2018</div>
+        <div class="job-company">Wimdu</div>
+        <div class="job-location">Berlin / Remote</div>
+      </div>
+      <div class="job-content">
+        <div class="job-title">In-House Brand Designer & Illustrator</div>
+        <div class="job-desc">
+          <ul>
+            <li>Joined as PM intern, moved into a full brand designer role six months later — staying two years and continuing as a freelance contributor after</li>
+            <li>Developed and maintained the visual language across 30+ European markets — infographics, ebooks, email, social, banners, landing pages, and UI elements</li>
+            <li>Produced city guides end-to-end in InDesign: cover design, custom maps, icon sets, image selection, layout, and ePub/MOBI export</li>
+            <li>Worked on multi-month editorial projects with content, research, and marketing teams</li>
+          </ul>
+        </div>
       </div>
     </div>
+
   </div>
 
- <div class="entry">
-      <div class="entry-date">Aug 2014 — Feb 2015</div>
-      <div>
-        <div class="entry-title">Product Internship</div>
-        <div class="entry-sub">Wimdu — Berlin / Remote &amp; On-site</div>
-        <ul class="entry-bullets">
-          <li>I’ve supported the creation of new SEO Landing pages and Mobile apps by reaching out to various departments, finalising business cases, curating content.</li>
-          <li>Managed <span class="highlight">Email restructuring project across 8 languages and 4 departments.</span> The feature was both technical and user-oriented.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
+  <!-- SKILLS -->
   <div class="section">
-    <div class="section-label">Volunteer &amp; Side Projects</div>
-
-    <div class="entry">
-      <div class="entry-date"></div>
-      <div>
-        <div class="entry-title">Django Girls — Co-Organiser</div>
-        <div class="entry-sub">Women's programming initiative</div>
-        <ul class="entry-bullets">
-          <li>Led sponsor outreach, marketing materials, PR and event logistics for a recurring women-in-tech workshop</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="entry">
-      <div class="entry-date"></div>
-      <div>
-        <div class="entry-title">UI Design &amp; Branding — <em>Barfny Kalkulator</em></div>
-        <div class="entry-sub">Mobile app · <a href="https://play.google.com/store/apps/details?id=com.BARFnyKalkulator.barfny_kalkulator_kot&hl=pl" style="color:#E8650A; text-decoration:none; border-bottom: 1px solid rgba(232,101,10,0.3);">Google Play</a></div>
-        <ul class="entry-bullets">
-          <li>Designed UI and visual identity for a mobile app helping cat owners calculate BARF diet portions — published on Google Play</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <div class="section">
-    <div class="section-label">Skills</div>
+    <p class="section-label">Skills & Tools</p>
     <div class="skills-grid">
-      <div>
-        <div class="skill-group-label">Design</div>
+      <div class="skill-block">
+        <p class="skill-block-label">Core skills</p>
         <div class="skill-tags">
-          <span class="tag accent">Brand &amp; Visual Identity</span>
-          <span class="tag accent">Motion Design</span>
-          <span class="tag accent">Design Systems</span>
-          <span class="tag">UI/UX Design</span>
+          <span class="tag highlight">Brand Identity</span>
+          <span class="tag highlight">Motion Design</span>
+          <span class="tag highlight">Infographics</span>
+          <span class="tag">Design Systems</span>
           <span class="tag">Illustration</span>
-          <span class="tag">Responsive Design</span>
-          <span class="tag">Prototyping</span>
-          <span class="tag">Wireframing</span>
-          <span class="tag">Interaction Design</span>
+          <span class="tag">UI/UX</span>
+          <span class="tag">Art Direction</span>
         </div>
       </div>
-      <div>
-        <div class="skill-group-label">Research &amp; Strategy</div>
+      <div class="skill-block">
+        <p class="skill-block-label">Design tools</p>
         <div class="skill-tags">
-          <span class="tag">User Research</span>
-          <span class="tag">Usability Testing</span>
-          <span class="tag">Customer Journey Mapping</span>
-          <span class="tag">Personas</span>
-          <span class="tag">Information Architecture</span>
-          <span class="tag">Trend Research</span>
+          <span class="tag highlight">Figma</span>
+          <span class="tag highlight">After Effects</span>
+          <span class="tag highlight">Illustrator</span>
+          <span class="tag">Photoshop</span>
+          <span class="tag">InDesign</span>
+          <span class="tag">Rive</span>
+          <span class="tag">Framer</span>
+          <span class="tag">Procreate</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <p class="skill-block-label">Workflow</p>
+        <div class="skill-tags">
+          <span class="tag">Jira</span>
+          <span class="tag">Notion</span>
+          <span class="tag">FigJam</span>
+          <span class="tag">Miro</span>
+          <span class="tag">Asana</span>
+          <span class="tag">AI tools</span>
+          <span class="tag">Basic HTML/CSS</span>
         </div>
       </div>
     </div>
   </div>
 
+  <!-- EDUCATION -->
   <div class="section">
-    <div class="section-label">Tools</div>
-    <div class="tools-row">
-      <span class="tag accent">Figma</span>
-      <span class="tag accent">After Effects</span>
-      <span class="tag accent">Framer</span>
-      <span class="tag accent">Adobe Illustrator</span>
-      <span class="tag">Photoshop</span>
-      <span class="tag">InDesign</span>
-      <span class="tag">Adobe XD</span>
-      <span class="tag">Sketch</span>
-      <span class="tag">Webflow</span>
-      <span class="tag">Procreate</span>
-      <span class="tag">Basic HTML &amp; CSS</span>
-      <span class="tag">AI tools</span>
-      <span class="tag">Pen + Paper</span>
-    </div>
-  </div>
+    <p class="section-label">Education</p>
 
-  <div class="section">
-    <div class="section-label">Education</div>
-
-    <div class="edu-entry">
-      <div class="edu-date">Oct 2024 – Dec 2024</div>
+    <div class="edu-grid">
+      <div class="edu-period">2021 — 2023</div>
       <div>
-        <div class="edu-title">Python Programming Basics</div>
-        <div class="edu-inst">Association Robisz.to — 60h, OOP, web &amp; desktop app development</div>
+        <div class="edu-title">Postgraduate Studies — Art & Design</div>
+        <div class="edu-desc">Eugeniusz Geppert Academy of Fine Arts, Wrocław · Screenprinting, lithography, industrial design, graphic design</div>
       </div>
     </div>
 
-    <div class="edu-entry">
-      <div class="edu-date">2020 – 2022</div>
-      <div>
-        <div class="edu-title">Design Courses &amp; Mentorships</div>
-        <div class="edu-inst">UI Design — Infoshare Academy · Digital Designer — Design Practice · UI Mentee — Dare IT · Motion Design — Adobe After Effects</div>
-      </div>
-    </div>
-
-    <div class="edu-entry">
-      <div class="edu-date">Oct 2021 – Feb 2023</div>
-      <div>
-        <div class="edu-title">Postgraduate Studies in Art &amp; Design</div>
-        <div class="edu-inst">Eugeniusz Geppert Academy of Fine Arts, Wrocław · Screenprinting, lithography, ceramics, industrial design, graphic design, textile art, furniture design</div>
-      </div>
-    </div>
-
-    <div class="edu-entry">
-      <div class="edu-date">2005 – 2010</div>
+    <div class="edu-grid">
+      <div class="edu-period">2005 — 2010</div>
       <div>
         <div class="edu-title">MA Cultural Studies</div>
-        <div class="edu-inst">University of Wrocław</div>
+        <div class="edu-desc">University of Wrocław · Narrative structure, critical thinking, audience analysis</div>
+      </div>
+    </div>
+
+    <div class="edu-grid">
+      <div class="edu-period">2020 — 2022</div>
+      <div>
+        <div class="edu-title">Design Courses & Mentorships</div>
+        <div class="edu-desc">UI Design — infoShare Academy · Digital Designer — Design Practice · UI Mentee — Dare IT · Motion Design — After Effects</div>
+      </div>
+    </div>
+
+    <div class="edu-grid">
+      <div class="edu-period">2024</div>
+      <div>
+        <div class="edu-title">Python Programming Basics</div>
+        <div class="edu-desc">Robisz.to · 60h · OOP, web & desktop app fundamentals</div>
       </div>
     </div>
   </div>
 
+  <!-- LANGUAGES -->
   <div class="section">
-    <div class="section-label">Languages</div>
+    <p class="section-label">Languages</p>
     <div class="lang-row">
-      <div>
-        <div class="lang-name">Polish</div>
-        <div class="lang-level">Native</div>
+      <div class="lang-item">
+        <div class="lang-dot"></div>
+        <span><strong>Polish</strong> — Native</span>
       </div>
-      <div>
-        <div class="lang-name">English</div>
-        <div class="lang-level">Advanced — C1</div>
+      <div class="lang-item">
+        <div class="lang-dot"></div>
+        <span><strong>English</strong> — Advanced C1 · daily professional use</span>
+      </div>
+      <div class="lang-item">
+        <div class="lang-dot muted"></div>
+        <span><strong>German</strong> — Basic</span>
       </div>
     </div>
   </div>
 
 </div>
+
+<footer>
+  <a href="https://jozamo.framer.website">jozamo.framer.website</a> &nbsp;·&nbsp;
+  j.zamojta@gmail.com &nbsp;·&nbsp;
+  © 2026 Joanna Żamojta
+</footer>
+
 </body>
 </html>
