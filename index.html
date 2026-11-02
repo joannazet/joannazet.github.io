@@ -1,360 +1,654 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./support.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Joanna Żamojta – Brand, Motion, Digital Designer & Illustrator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --green: #1a3d2b;
+    --lime: #c8f04a;
+    --ink: #111;
+    --muted: #666;
+    --border: rgba(0,0,0,0.1);
+    --bg: #f8f7f4;
+    --white: #ffffff;
+  }
+
+  html { font-size: 16px; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── LAYOUT ── */
+  .page {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--green);
+    color: var(--white);
+    padding: 48px 24px 40px;
+    margin-bottom: 0;
+  }
+
+  .header-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 32px;
+    align-items: end;
+  }
+
+  .name {
+    font-family: 'DM Sans', sans-serif;
+    font-size: clamp(40px, 6vw, 52px);
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    margin-bottom: 16px;
+    color: var(--white);
+  }
+
+  .name span {
+    color: var(--lime);
+  }
+
+  .title {
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.65);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .tagline {
+    font-size: 16px;
+    color: rgba(255,255,255,0.85);
+    max-width: 480px;
+    line-height: 1.6;
+  }
+
+  .contact-block {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-end;
+  }
+
+  .contact-block a {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-size: 13px;
+    transition: color 0.15s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .contact-block a:hover { color: var(--lime); }
+
+  .contact-block .pill {
+    background: var(--lime);
+    color: var(--green);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    padding: 6px 14px;
+    border-radius: 99px;
+    letter-spacing: 0.03em;
+    margin-bottom: 4px;
+    text-decoration: none;
+  }
+
+  /* ── SECTIONS ── */
+  .section {
+    padding-top: 40px;
+    border-top: 0.5px solid var(--border);
+    margin-top: 40px;
+  }
+
+  .section:first-of-type { margin-top: 40px; }
+
+  .section-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 24px;
+  }
+
+  /* ── EXPERIENCE ── */
+  .job {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 0 24px;
+    margin-bottom: 32px;
+    padding-bottom: 32px;
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .job:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+  .job-meta {
+    padding-top: 2px;
+  }
+
+  .job-period {
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.5;
+    font-weight: 400;
+  }
+
+  .job-company {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--green);
+    margin-top: 4px;
+  }
+
+  .job-location {
+    font-size: 10px;
+    color: var(--muted);
+    margin-top: 2px;
+    font-style: italic;
+  }
+
+  .job-title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+
+  .job-desc {
+    font-size: 13px;
+    color: #444;
+    line-height: 1.65;
+  }
+
+  .job-desc ul {
+    padding-left: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 8px;
+  }
+
+  .job-desc li {
+    font-size: 13px;
+    color: #444;
+    padding-left: 14px;
+    position: relative;
+    line-height: 1.55;
+  }
+
+  .job-desc li::before {
+    content: '–';
+    position: absolute;
+    left: 0;
+    color: var(--muted);
+    font-size: 11px;
+    top: 2px;
+  }
+
+  .clients-line {
+    margin-top: 12px;
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .clients-line strong {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  /* ── SKILLS GRID ── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 0.5px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .skill-block {
+    background: var(--white);
+    padding: 16px 18px;
+  }
+
+  .skill-block-label {
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .tag {
+    font-size: 11px;
+    padding: 3px 9px;
+    border-radius: 99px;
+    border: 0.5px solid var(--border);
+    color: var(--ink);
+    background: var(--bg);
+    white-space: nowrap;
+  }
+
+  .tag.highlight {
+    background: var(--lime);
+    border-color: transparent;
+    color: var(--green);
+    font-weight: 500;
+  }
+
+  /* ── EDUCATION ── */
+  .edu-grid {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 0 24px;
+    margin-bottom: 20px;
+  }
+
+  .edu-period {
+    font-size: 11px;
+    color: var(--muted);
+    padding-top: 2px;
+    line-height: 1.4;
+  }
+
+  .edu-title {
+    font-weight: 500;
+    font-size: 13px;
+    color: var(--ink);
+    margin-bottom: 2px;
+  }
+
+  .edu-desc {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  /* ── LANGUAGES ── */
+  .lang-row {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .lang-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+  }
+
+  .lang-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--green);
+    flex-shrink: 0;
+  }
+
+  .lang-dot.muted { background: var(--muted); opacity: 0.4; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--green);
+    color: rgba(255,255,255,0.5);
+    font-size: 11px;
+    text-align: center;
+    padding: 20px 24px;
+    letter-spacing: 0.04em;
+  }
+
+  footer a { color: var(--lime); text-decoration: none; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .header-inner { grid-template-columns: 1fr; }
+    .contact-block { text-align: left; align-items: flex-start; }
+    .job { grid-template-columns: 1fr; gap: 4px; }
+    .job-meta { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-bottom: 6px; }
+    .edu-grid { grid-template-columns: 1fr; gap: 2px; }
+    .edu-period { font-size: 10px; }
+  }
+
+  @media print {
+    body { background: white; }
+    header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .section { page-break-inside: avoid; }
+  }
+</style>
 </head>
 <body>
-<x-dc>
-<helmet>
-<title>Joanna Żamojta – Application · Algo.tv</title>
-<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#12211A"></rect><text x="50" y="62" text-anchor="middle" font-family="sans-serif" font-weight="700" font-size="34" fill="#1E8A57">JŻ</text></svg></template>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
-<style>
-@font-face{font-family:'Uncut Sans';src:url('fonts/uncut-sans-latin-400-normal.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
-@font-face{font-family:'Uncut Sans';src:url('fonts/uncut-sans-latin-500-normal.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap}
-@font-face{font-family:'Uncut Sans';src:url('fonts/uncut-sans-latin-600-normal.woff2') format('woff2');font-weight:600 800;font-style:normal;font-display:swap}
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:#12211A}
-a{color:#1E8A57;text-decoration:none}
-a:hover{color:#12693F}
-@keyframes dzUp{from{opacity:0;transform:translateY(36px)}to{opacity:1;transform:none}}
-@keyframes dzBar{from{transform:scaleY(0)}to{transform:scaleY(1)}}
-@keyframes dzLine{from{transform:scaleX(0)}to{transform:scaleX(1)}}
-@media (prefers-reduced-motion:no-preference){
-[data-deck-active] [data-anim="up"]{animation:dzUp .8s cubic-bezier(.2,.7,.2,1) both}
-[data-deck-active] [data-anim="bar"]{animation:dzBar 1s cubic-bezier(.2,.7,.2,1) both}
-[data-deck-active] [data-anim="line"]{animation:dzLine 1s cubic-bezier(.6,0,.2,1) both}
-}
-</style>
-</helmet>
-<x-import component-from-global-scope="deck-stage" from="./deck-stage.js" width="1920" height="1080" hint-size="100%,100%">
 
-<section data-label="Title" data-speaker-notes="Intro: who I am and which role I'm applying for." style="background:#12211A;color:#F5F8F3;font-family:'Uncut Sans',sans-serif;padding:100px;display:grid;grid-template-columns:1.25fr 1fr;gap:80px;align-items:end">
-  <div style="display:flex;flex-direction:column;gap:40px">
-    <div data-anim="up" style="font-family:'JetBrains Mono',monospace;font-size:26px;letter-spacing:.2em;text-transform:uppercase;color:#C2D2C2">✺ Application · Algo.tv</div>
-    <h1 data-anim="up" style="animation-delay:.1s;font-size:168px;line-height:.92;letter-spacing:-.04em;font-weight:700">Joanna Żamojta</h1>
-    <div data-anim="up" style="animation-delay:.2s;display:flex;flex-direction:column;gap:14px">
-      <p style="font-size:48px;font-weight:600;color:#F5F8F3">Graphic Designer – Brand &amp; Data-viz</p>
-      <p style="font-size:34px;color:#C2D2C2">Brand, Digital &amp; Motion Designer · Illustrator</p>
+<header>
+  <div class="header-inner">
+    <div>
+      <p class="title">Brand, Digital & Motion Designer · Illustrator</p>
+      <h1 class="name">Joanna <span>Żamojta</span></h1>
+      <p class="tagline">10+ years building brand systems, motion content, and visual identities for international tech companies and startups – often as the only designer in the room.</p>
     </div>
-    <div data-anim="line" style="animation-delay:.3s;transform-origin:left;height:3px;background:#1E8A57;width:100%"></div>
-    <div data-anim="up" style="animation-delay:.4s;display:flex;flex-wrap:wrap;gap:12px 40px;font-family:'JetBrains Mono',monospace;font-size:24px;color:#C2D2C2">
-      <span>j.zamojta@gmail.com</span>
-      <span>jozamo.framer.website</span>
-      <span>Poznań, Poland · CET</span>
+    <div class="contact-block">
+      <a href="https://jozamo.framer.website" class="pill">View portfolio ↗</a>
+      <a href="mailto:j.zamojta@gmail.com">j.zamojta@gmail.com</a>
+      <a href="https://linkedin.com/in/joannazamojta">linkedin.com/in/joannazamojta</a>
+      <a href="https://dribbble.com/joannaz">dribbble.com/joannaz</a>
+      <a href="#">Poznań, Poland · Remote</a>
     </div>
   </div>
-  <div style="height:640px;display:flex;align-items:flex-end;gap:18px;border-bottom:2px solid #46554C">
-    <div data-anim="bar" style="animation-delay:.30s;transform-origin:bottom;flex:1;height:28%;background:#46554C"></div>
-    <div data-anim="bar" style="animation-delay:.36s;transform-origin:bottom;flex:1;height:44%;background:#46554C"></div>
-    <div data-anim="bar" style="animation-delay:.42s;transform-origin:bottom;flex:1;height:36%;background:#46554C"></div>
-    <div data-anim="bar" style="animation-delay:.48s;transform-origin:bottom;flex:1;height:58%;background:#46554C"></div>
-    <div data-anim="bar" style="animation-delay:.54s;transform-origin:bottom;flex:1;height:50%;background:#46554C"></div>
-    <div data-anim="bar" style="animation-delay:.60s;transform-origin:bottom;flex:1;height:72%;background:#1E8A57"></div>
-    <div data-anim="bar" style="animation-delay:.66s;transform-origin:bottom;flex:1;height:64%;background:#1E8A57"></div>
-    <div data-anim="bar" style="animation-delay:.72s;transform-origin:bottom;flex:1;height:86%;background:#1E8A57"></div>
-    <div data-anim="bar" style="animation-delay:.78s;transform-origin:bottom;flex:1;height:100%;background:#1E8A57"></div>
-  </div>
-</section>
+</header>
 
-<section data-label="About Me" data-speaker-notes="10+ years in brand, motion and data-viz, mostly for international tech companies." style="background:#F5F8F3;color:#12211A;font-family:'Uncut Sans',sans-serif;padding:100px 100px 80px;display:flex;flex-direction:column;gap:52px">
-  <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid #1E8A57;padding-bottom:28px">
-    <h2 data-anim="up" style="font-size:72px;font-weight:700;letter-spacing:-.03em">About Me</h2>
-    <span style="font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:.16em;color:#869187">02</span>
-  </div>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:100px;flex:1">
-    <div style="display:flex;flex-direction:column;gap:36px">
-      <p data-anim="up" style="animation-delay:.1s;font-size:44px;line-height:1.25;font-weight:500;text-wrap:pretty">10+ years building brand systems, motion content, and visual identities for international tech companies and startups – often as the only designer in the room.</p>
-      <p data-anim="up" style="animation-delay:.2s;font-size:32px;line-height:1.45;color:#46554C;text-wrap:pretty">Focused on identity, illustration, data viz and motion. Background in Cultural Studies (MA) and Art &amp; Design at the Academy of Fine Arts in Wrocław.</p>
-      <p data-anim="up" style="animation-delay:.3s;font-size:32px;line-height:1.45;color:#46554C;text-wrap:pretty">I'm learning Italian, I love Italy, and I'm open to moving to Turin in the future.</p>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:0">
-      <div data-anim="up" style="animation-delay:.2s;display:grid;grid-template-columns:260px 1fr;align-items:baseline;gap:32px;padding:28px 0;border-bottom:1px solid #C2D2C2">
-        <span style="font-size:110px;font-weight:700;letter-spacing:-.04em;color:#1E8A57;line-height:1">10+</span>
-        <span style="font-size:32px;color:#46554C">years designing for clients</span>
-      </div>
-      <div data-anim="up" style="animation-delay:.3s;display:grid;grid-template-columns:260px 1fr;align-items:baseline;gap:32px;padding:28px 0;border-bottom:1px solid #C2D2C2">
-        <span style="font-size:110px;font-weight:700;letter-spacing:-.04em;color:#1E8A57;line-height:1">30+</span>
-        <span style="font-size:32px;color:#46554C">European markets on one visual language (Wimdu)</span>
-      </div>
-      <div data-anim="up" style="animation-delay:.4s;display:grid;grid-template-columns:260px 1fr;align-items:baseline;gap:32px;padding:28px 0">
-        <span style="font-size:110px;font-weight:700;letter-spacing:-.04em;color:#1E8A57;line-height:1">15</span>
-        <span style="font-size:32px;color:#46554C">international clients, incl. Lingoda, Ecosia, Sololearn, Sendcloud</span>
-      </div>
-    </div>
-  </div>
-</section>
+<div class="page">
 
-<section data-label="Where My Work Overlaps" data-speaker-notes="Map of Algo project types to my comparable work. Honest about the gap: automated video pipelines." style="background:#F5F8F3;color:#12211A;font-family:'Uncut Sans',sans-serif;padding:100px 100px 80px;display:flex;flex-direction:column;gap:52px">
-  <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid #1E8A57;padding-bottom:28px">
-    <h2 data-anim="up" style="font-size:72px;font-weight:700;letter-spacing:-.03em">Where My Work Overlaps</h2>
-    <span style="font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:.16em;color:#869187">03</span>
-  </div>
-  <div style="display:flex;flex-direction:column">
-    <div style="display:grid;grid-template-columns:1fr 1.3fr 220px;gap:40px;padding:0 0 18px;font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:.12em;color:#869187">
-      <span>ALGO PROJECT TYPE</span><span>MY COMPARABLE WORK</span><span>MATCH</span>
-    </div>
-    <div data-anim="up" style="animation-delay:.1s;display:grid;grid-template-columns:1fr 1.3fr 220px;gap:40px;padding:24px 0;border-top:1px solid #C2D2C2;align-items:center">
-      <span style="font-size:34px;font-weight:600">Editorial data-viz</span>
-      <span style="font-size:30px;color:#46554C">Wimdu infographics, Pflegetiger survey maps</span>
-      <span style="justify-self:start;font-size:26px;font-weight:600;background:#1E8A57;color:#fff;border-radius:999px;padding:6px 22px">Strong</span>
-    </div>
-    <div data-anim="up" style="animation-delay:.18s;display:grid;grid-template-columns:1fr 1.3fr 220px;gap:40px;padding:24px 0;border-top:1px solid #C2D2C2;align-items:center">
-      <span style="font-size:34px;font-weight:600">Animated infographics</span>
-      <span style="font-size:30px;color:#46554C">Lingoda explainer series, animated world map</span>
-      <span style="justify-self:start;font-size:26px;font-weight:600;background:#1E8A57;color:#fff;border-radius:999px;padding:6px 22px">Strong</span>
-    </div>
-    <div data-anim="up" style="animation-delay:.26s;display:grid;grid-template-columns:1fr 1.3fr 220px;gap:40px;padding:24px 0;border-top:1px solid #C2D2C2;align-items:center">
-      <span style="font-size:34px;font-weight:600">Brand &amp; template systems</span>
-      <span style="font-size:30px;color:#46554C">Wimdu content system, template libraries for SaaS brands</span>
-      <span style="justify-self:start;font-size:26px;font-weight:600;background:#1E8A57;color:#fff;border-radius:999px;padding:6px 22px">Strong</span>
-    </div>
-    <div data-anim="up" style="animation-delay:.34s;display:grid;grid-template-columns:1fr 1.3fr 220px;gap:40px;padding:24px 0;border-top:1px solid #C2D2C2;align-items:center">
-      <span style="font-size:34px;font-weight:600">Data-viz slide decks</span>
-      <span style="font-size:30px;color:#46554C">Pitch deck design</span>
-      <span style="justify-self:start;font-size:26px;font-weight:600;background:#1E8A57;color:#fff;border-radius:999px;padding:6px 22px">Strong</span>
-    </div>
-    <div data-anim="up" style="animation-delay:.42s;display:grid;grid-template-columns:1fr 1.3fr 220px;gap:40px;padding:24px 0;border-top:1px solid #C2D2C2;align-items:center">
-      <span style="font-size:34px;font-weight:600">Motion identity</span>
-      <span style="font-size:30px;color:#46554C">Zwei Café – identity, print, social, motion</span>
-      <span style="justify-self:start;font-size:26px;font-weight:600;border:2px solid #1E8A57;color:#12693F;border-radius:999px;padding:4px 20px">Partial</span>
-    </div>
-    <div data-anim="up" style="animation-delay:.5s;display:grid;grid-template-columns:1fr 1.3fr 220px;gap:40px;padding:24px 0;border-top:1px solid #C2D2C2;border-bottom:1px solid #C2D2C2;align-items:center">
-      <span style="font-size:34px;font-weight:600">Automated video</span>
-      <span style="font-size:30px;color:#46554C">Not yet – the area I want to grow into</span>
-      <span style="justify-self:start;font-size:26px;font-weight:600;border:2px dashed #869187;color:#46554C;border-radius:999px;padding:4px 20px">To learn</span>
-    </div>
-  </div>
-</section>
+  <!-- EXPERIENCE -->
+  <div class="section">
+    <p class="section-label">Experience</p>
 
-<section data-label="Infographics" data-speaker-notes="One project, three clients: infographics for Wimdu, Pflegetiger and Lingoda. Data research turned into clear, on-brand visual stories." style="background:#F5F8F3;color:#12211A;font-family:'Uncut Sans',sans-serif;padding:100px 100px 80px;display:flex;flex-direction:column;gap:44px">
-  <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid #1E8A57;padding-bottom:28px">
-    <h2 data-anim="up" style="font-size:72px;font-weight:700;letter-spacing:-.03em">Infographics</h2>
-    <span style="font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:.16em;color:#869187">04 · WORK</span>
-  </div>
-  <p data-anim="up" style="animation-delay:.05s;font-size:36px;line-height:1.35;color:#46554C;max-width:1500px;text-wrap:pretty">Turning survey results and market data into clear visual stories – each one built in the client's brand language.</p>
-  <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;flex:1;min-height:0">
-    <a data-anim="up" href="https://www.behance.net/gallery/37365291/Infographics-created-for-WIMDU" target="_blank" style="animation-delay:0.1s;display:flex;flex-direction:column;gap:18px;min-height:0;color:#12211A">
-      <div style="flex:1;min-height:0;background:#fff;border:1px solid #DCE7DC;border-radius:20px;overflow:hidden;display:flex;align-items:center;justify-content:center">
-        <img src="assets/wimdu-music-festivals.png" alt="Wimdu summer music festivals infographic" style="width:100%;height:100%;object-fit:cover;object-position:top">
+    <div class="job">
+      <div class="job-meta">
+        <div class="job-period">2016 – present</div>
+        <div class="job-company">Freelance</div>
+        <div class="job-location">Remote / worldwide</div>
       </div>
-      <div style="display:flex;flex-direction:column;gap:6px">
-        <span style="font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:.12em;color:#12693F">WIMDU</span>
-        <span style="font-size:30px;font-weight:600;line-height:1.25;min-height:2.5em">Travel &amp; city infographics</span>
-        <span style="font-family:'JetBrains Mono',monospace;font-size:24px;color:#46554C">↗ behance · Wimdu</span>
+      <div class="job-content">
+        <div class="job-title">Senior Brand & Motion Designer · Illustrator</div>
+        <div class="job-desc">
+          <ul>
+            <li>Built and extended visual identities for international B2B and SaaS brands – brand books, design systems, and scalable template libraries</li>
+            <li>Produced explainer animations, animated infographics, and campaign motion in After Effects – from storyboard to final export</li>
+            <li>Designed landing pages, social campaigns, and digital advertising assets for weekly multi-market distribution</li>
+            <li>Presented design rationale directly to founders, marketing leads, and C-level stakeholders in English</li>
+            <li>Used AI tools (Figma Make, Claude, Gemini) to accelerate ideation and workflow</li>
+          </ul>
+          <p class="clients-line"><strong>Clients:</strong> Lingoda · Ecosia · Sololearn · Sendcloud · Contentoo · Bonavi · Careship · Pflegetiger · Hoppilow · Landschaft · Müller Poland · VeryNiceWorks · ProvolveIT · Nanores · Zwei Café</p>
+        </div>
       </div>
-    </a>
-    <a data-anim="up" href="https://www.behance.net/gallery/46321601/Winter-Survey-Infographic-(client-Pflegetiger)" target="_blank" style="animation-delay:0.2s;display:flex;flex-direction:column;gap:18px;min-height:0;color:#12211A">
-      <div style="flex:1;min-height:0;background:#fff;border:1px solid #DCE7DC;border-radius:20px;overflow:hidden;display:flex;align-items:center;justify-content:center">
-        <img src="https://cdn.dribbble.com/userupload/21507689/file/original-868e4213046b03ad797034cafb5a11c7.png?resize=1200x900" alt="Winter Survey infographic for Pflegetiger" style="width:100%;height:100%;object-fit:contain">
-      </div>
-      <div style="display:flex;flex-direction:column;gap:6px">
-        <span style="font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:.12em;color:#12693F">PFLEGETIGER</span>
-        <span style="font-size:30px;font-weight:600;line-height:1.25;min-height:2.5em">Winter Survey infographic</span>
-        <span style="font-family:'JetBrains Mono',monospace;font-size:24px;color:#46554C">↗ behance · Pflegetiger</span>
-      </div>
-    </a>
-    <a data-anim="up" href="https://www.behance.net/gallery/89656081/Learning-the-language-infographics-(client-Lingoda)" target="_blank" style="animation-delay:0.3s;display:flex;flex-direction:column;gap:18px;min-height:0;color:#12211A">
-      <div style="flex:1;min-height:0;background:#fff;border:1px solid #DCE7DC;border-radius:20px;overflow:hidden;display:flex;align-items:center;justify-content:center">
-        <img src="https://framerusercontent.com/images/ghFy9IAw8LfDC2lZbPG8MoemxYo.gif?width=280&amp;height=210" alt="Lingoda animated world map" style="width:100%;height:100%;object-fit:contain">
-      </div>
-      <div style="display:flex;flex-direction:column;gap:6px">
-        <span style="font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:.12em;color:#12693F">LINGODA</span>
-        <span style="font-size:30px;font-weight:600;line-height:1.25;min-height:2.5em">Learning the language infographics</span>
-        <span style="font-family:'JetBrains Mono',monospace;font-size:24px;color:#46554C">↗ behance · Lingoda</span>
-      </div>
-    </a>
-  </div>
-</section>
+    </div>
 
-<section data-label="Illustration Systems" data-speaker-notes="Illustration built as systems: one style, reusable parts, applied across UI, web and social." style="background:#F5F8F3;color:#12211A;font-family:'Uncut Sans',sans-serif;padding:100px 100px 80px;display:flex;flex-direction:column;gap:52px">
-  <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid #1E8A57;padding-bottom:28px">
-    <h2 data-anim="up" style="font-size:72px;font-weight:700;letter-spacing:-.03em">Illustration Systems</h2>
-    <span style="font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:.16em;color:#869187">05 · WORK</span>
-  </div>
-  <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px;flex:1;min-height:0">
-    <figure data-anim="up" style="animation-delay:0.1s;display:flex;flex-direction:column;gap:14px;min-height:0">
-      <div style="flex:1;min-height:0;background:#fff;border:1px solid #DCE7DC;border-radius:20px;overflow:hidden">
-        <img src="https://cdn.dribbble.com/userupload/47510829/file/2c015f483daf3129bac45336fb7737ea.png?resize=1600x1200" alt="Nanores UI system and illustrations" style="width:100%;height:100%;object-fit:cover">
+    <div class="job">
+      <div class="job-meta">
+        <div class="job-period">2021</div>
+        <div class="job-company">Moodiphy</div>
+        <div class="job-location">Wrocław / Remote</div>
       </div>
-      <figcaption style="display:flex;flex-direction:column;gap:4px"><span style="font-size:30px;font-weight:600">Nanores</span><span style="font-size:26px;color:#46554C">UI system &amp; illustrations for a deep-tech brand</span></figcaption>
-    </figure>
-    <figure data-anim="up" style="animation-delay:0.2s;display:flex;flex-direction:column;gap:14px;min-height:0">
-      <div style="flex:1;min-height:0;background:#fff;border:1px solid #DCE7DC;border-radius:20px;overflow:hidden">
-        <img src="https://cdn.dribbble.com/userupload/13318698/file/still-eef916667ea98044ed34a39e909337d6.png?resize=1600x1200" alt="Sololearn graphs illustration" style="width:100%;height:100%;object-fit:cover">
+      <div class="job-content">
+        <div class="job-title">Brand Designer</div>
+        <div class="job-desc">
+          <ul>
+            <li>Strengthened visual presence for lifestyle e-commerce brands Phlov, MomMe, and Alkemie – trend-aware, commercially driven brand assets</li>
+            <li>Designed e-commerce landing pages and web assets to support online growth</li>
+          </ul>
+        </div>
       </div>
-      <figcaption style="display:flex;flex-direction:column;gap:4px"><span style="font-size:30px;font-weight:600">Sololearn</span><span style="font-size:26px;color:#46554C">Social illustration &amp; motion series</span></figcaption>
-    </figure>
-    <figure data-anim="up" style="animation-delay:0.3s;display:flex;flex-direction:column;gap:14px;min-height:0">
-      <div style="flex:1;min-height:0;background:#fff;border:1px solid #DCE7DC;border-radius:20px;overflow:hidden">
-        <img src="assets/zwei-cups.jpg" alt="Zwei coffee cups" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block">
-      </div>
-      <figcaption style="display:flex;flex-direction:column;gap:4px"><span style="font-size:30px;font-weight:600">Zwei Café</span><span style="font-size:26px;color:#46554C">Identity, illustration, print, motion</span></figcaption>
-    </figure>
-  </div>
-</section>
+    </div>
 
-<section data-label="Illustration Range" data-speaker-notes="Range: editorial infographics, maps, patterns, brand illustration." style="background:#F5F8F3;color:#12211A;font-family:'Uncut Sans',sans-serif;padding:100px 100px 80px;display:flex;flex-direction:column;gap:52px">
-  <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid #1E8A57;padding-bottom:28px">
-    <h2 data-anim="up" style="font-size:72px;font-weight:700;letter-spacing:-.03em">Illustration Range</h2>
-    <span style="font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:.16em;color:#869187">06 · WORK</span>
-  </div>
-  <div style="display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:1fr 1fr;gap:32px;flex:1;min-height:0">
-    <figure data-anim="up" style="animation-delay:0.1s;display:flex;flex-direction:column;gap:14px;min-height:0">
-      <div style="flex:1;min-height:0;background:#fff;border:1px solid #DCE7DC;border-radius:20px;overflow:hidden">
-        <img src="https://cdn.dribbble.com/userupload/21507689/file/original-868e4213046b03ad797034cafb5a11c7.png?resize=1200x900" alt="Winter Survey for Pflegetiger.de" style="width:100%;height:100%;object-fit:cover">
+    <div class="job">
+      <div class="job-meta">
+        <div class="job-period">2015 – 2018</div>
+        <div class="job-company">Wimdu</div>
+        <div class="job-location">Berlin / Remote</div>
       </div>
-      <figcaption style="display:flex;flex-direction:column;gap:4px"><span style="font-size:30px;font-weight:600">Pflegetiger – survey infographic</span></figcaption>
-    </figure>
-    <figure data-anim="up" style="animation-delay:0.15s;display:flex;flex-direction:column;gap:14px;min-height:0">
-      <div style="flex:1;min-height:0;background:#fff;border:1px solid #DCE7DC;border-radius:20px;overflow:hidden">
-        <img src="assets/easter-card.png" alt="Easter card illustration" style="width:100%;height:100%;object-fit:cover">
+      <div class="job-content">
+        <div class="job-title">In-House Brand Designer & Illustrator</div>
+        <div class="job-desc">
+          <ul>
+            <li>Joined as PM intern, moved into a full brand designer role six months later – staying two years and continuing as a freelance contributor after</li>
+            <li>Developed and maintained the visual language across 30+ European markets – infographics, ebooks, email, social, banners, landing pages, and UI elements</li>
+            <li>Produced city guides end-to-end in InDesign: cover design, custom maps, icon sets, image selection, layout, and ePub/MOBI export</li>
+            <li>Worked on multi-month editorial projects with content, research, and marketing teams</li>
+          </ul>
+        </div>
       </div>
-      <figcaption style="display:flex;flex-direction:column;gap:4px"><span style="font-size:30px;font-weight:600">Easter card – pattern illustration</span></figcaption>
-    </figure>
-    <figure data-anim="up" style="animation-delay:0.2s;display:flex;flex-direction:column;gap:14px;min-height:0">
-      <div style="flex:1;min-height:0;background:#fff;border:1px solid #DCE7DC;border-radius:20px;overflow:hidden">
-        <img src="https://cdn.dribbble.com/userupload/12731629/file/original-dad1c8c1099d0f9abfc60400a007dc59.png?resize=1200x900" alt="Nanores website illustration" style="width:100%;height:100%;object-fit:cover">
-      </div>
-      <figcaption style="display:flex;flex-direction:column;gap:4px"><span style="font-size:30px;font-weight:600">Nanores – web illustration</span></figcaption>
-    </figure>
-    <figure data-anim="up" style="animation-delay:0.25s;display:flex;flex-direction:column;gap:14px;min-height:0">
-      <div style="flex:1;min-height:0;background:#fff;border:1px solid #DCE7DC;border-radius:20px;overflow:hidden">
-        <img src="https://cdn.dribbble.com/userupload/30616427/file/original-c9c3c0c34a89736ff76837f1ad1da805.png?resize=1200x900" alt="Sevasha Flowers branding" style="width:100%;height:100%;object-fit:cover">
-      </div>
-      <figcaption style="display:flex;flex-direction:column;gap:4px"><span style="font-size:30px;font-weight:600">Sevasha – logo &amp; pattern</span></figcaption>
-    </figure>
-    <figure data-anim="up" style="animation-delay:0.3s;display:flex;flex-direction:column;gap:14px;min-height:0">
-      <div style="flex:1;min-height:0;background:#fff;border:1px solid #DCE7DC;border-radius:20px;overflow:hidden">
-        <img src="https://cdn.dribbble.com/userupload/13318029/file/still-43baf1bf0cc1351a43db98e05d45078e.png?resize=1200x900" alt="Diversity day animation" style="width:100%;height:100%;object-fit:cover">
-      </div>
-      <figcaption style="display:flex;flex-direction:column;gap:4px"><span style="font-size:30px;font-weight:600">Diversity Day – social motion</span></figcaption>
-    </figure>
-    <figure data-anim="up" style="animation-delay:0.35s;display:flex;flex-direction:column;gap:14px;min-height:0">
-      <div style="flex:1;min-height:0;background:#fff;border:1px solid #DCE7DC;border-radius:20px;overflow:hidden">
-        <img src="assets/desk-illustration.png" alt="Workspace illustration" style="width:100%;height:100%;object-fit:cover">
-      </div>
-      <figcaption style="display:flex;flex-direction:column;gap:4px"><span style="font-size:30px;font-weight:600">Workspace – scene illustration</span></figcaption>
-    </figure>
-  </div>
-</section>
+    </div>
 
-<section data-label="Project I'm Most Proud Of" data-speaker-notes="Answer to Algo's question: the project I'm most proud of – Wimdu city guide ebooks, produced end-to-end." style="background:#12211A;color:#F5F8F3;font-family:'Uncut Sans',sans-serif;padding:100px 100px 80px;display:grid;grid-template-columns:1fr 1fr;gap:80px">
-  <div style="display:flex;flex-direction:column;gap:24px;min-height:0">
-    <div style="display:flex;flex-direction:column;gap:24px;border-bottom:2px solid #1E8A57;padding-bottom:28px">
-      <span data-anim="up" style="font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:.16em;color:#C2D2C2">07 · THE PROJECT I'M MOST PROUD OF</span>
-      <p data-anim="up" style="animation-delay:.05s;font-family:'Libre Caslon Display',serif;font-size:34px;line-height:1.2;color:#C2D2C2;text-wrap:pretty">“Tell us about the creative or technical project you worked on that you’re most proud of.”</p>
-      <h2 data-anim="up" style="animation-delay:.1s;font-size:64px;line-height:1;font-weight:700;letter-spacing:-.03em">Wimdu City Guide Ebooks</h2>
-    </div>
-    <div style="display:flex;flex-direction:column">
-      <div data-anim="up" style="animation-delay:0.2s;display:grid;grid-template-columns:28px 1fr;gap:20px;padding:14px 0;border-top:1px solid #46554C"><span style="width:14px;height:14px;background:#1E8A57;margin-top:12px"></span><span style="font-size:28px;line-height:1.4;color:#DCE7DC">A series of travel ebooks for Wimdu, produced end-to-end by me – from concept to final file.</span></div>
-      <div data-anim="up" style="animation-delay:0.28s;display:grid;grid-template-columns:28px 1fr;gap:20px;padding:14px 0;border-top:1px solid #46554C"><span style="width:14px;height:14px;background:#1E8A57;margin-top:12px"></span><span style="font-size:28px;line-height:1.4;color:#DCE7DC">Covers, custom city maps and icon sets, all in one visual language shared across 30+ European markets.</span></div>
-      <div data-anim="up" style="animation-delay:0.36s;display:grid;grid-template-columns:28px 1fr;gap:20px;padding:14px 0;border-top:1px solid #46554C"><span style="width:14px;height:14px;background:#1E8A57;margin-top:12px"></span><span style="font-size:28px;line-height:1.4;color:#DCE7DC">Layout and typography for long-form reading, exported to ePub and MOBI.</span></div>
-      <div data-anim="up" style="animation-delay:0.44s;display:grid;grid-template-columns:28px 1fr;gap:20px;padding:14px 0;border-top:1px solid #46554C"><span style="width:14px;height:14px;background:#1E8A57;margin-top:12px"></span><span style="font-size:28px;line-height:1.4;color:#DCE7DC">Creative and technical in one project: a design system that had to work on every e-reader.</span></div>
-    </div>
   </div>
-  <div data-anim="up" style="animation-delay:.25s;background:#F5F8F3;border-radius:20px;overflow:hidden;display:flex;align-items:center;justify-content:center">
-    <img src="assets/wimdu-london-guide.png" alt="Wimdu London city guide spreads" style="width:100%;height:100%;object-fit:contain">
-  </div>
-</section>
 
-<section data-label="Motion-ready Design" data-speaker-notes="Designs built for motion: campaign banners, illustration, social. I hand off to animation or animate myself (After Effects, Rive, Jitter)." style="background:#F5F8F3;color:#12211A;font-family:'Uncut Sans',sans-serif;padding:100px 100px 80px;display:flex;flex-direction:column;gap:52px">
-  <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid #1E8A57;padding-bottom:28px">
-    <h2 data-anim="up" style="font-size:72px;font-weight:700;letter-spacing:-.03em">Motion-ready Design</h2>
-    <span style="font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:.16em;color:#869187">08 · WORK</span>
-  </div>
-  <a data-anim="up" href="https://vimeo.com/zamojta" target="_blank" style="animation-delay:.05s;align-self:flex-start;margin-top:-20px;display:flex;gap:16px;align-items:center;font-family:'JetBrains Mono',monospace;font-size:26px;color:#12693F;border:2px solid #1E8A57;border-radius:999px;padding:8px 26px">▶ Explainers &amp; animations · vimeo.com/zamojta</a>
-  <div style="display:grid;grid-template-columns:1fr 1fr 0.75fr;gap:40px;flex:1;min-height:0">
-    <figure data-anim="up" style="animation-delay:.1s;display:flex;flex-direction:column;gap:18px;min-height:0">
-      <div style="flex:1;min-height:0;background:#fff;border:1px solid #DCE7DC;border-radius:20px;overflow:hidden;display:flex;align-items:center;justify-content:center">
-        <img src="https://framerusercontent.com/images/1RGNOCVG9uPUM0hogQZfnrFHbw.gif?width=600&amp;height=500" alt="Autumn sale banner" style="width:100%;height:100%;object-fit:contain">
+  <!-- INFOGRAPHICS & ILLUSTRATION HIGHLIGHT -->
+  <div class="section">
+    <p class="section-label">Infographics, Illustration & Data Visualization</p>
+    <div class="skills-grid">
+      <div class="skill-block">
+        <p class="skill-block-label">What I've made</p>
+        <div class="skill-tags">
+          <span class="tag highlight">Editorial infographics</span>
+          <span class="tag highlight">Data visualization</span>
+          <span class="tag highlight">Animated infographics</span>
+          <span class="tag">City maps & icons</span>
+          <span class="tag">Survey data visuals</span>
+          <span class="tag">Custom illustration</span>
+          <span class="tag">Icon sets</span>
+          <span class="tag">Ebook illustration</span>
+        </div>
       </div>
-      <figcaption style="font-size:28px;color:#46554C">Campaign banner</figcaption>
-    </figure>
-    <figure data-anim="up" style="animation-delay:.2s;display:flex;flex-direction:column;gap:18px;min-height:0">
-      <div style="flex:1;min-height:0;background:#fff;border:1px solid #DCE7DC;border-radius:20px;overflow:hidden;display:flex;align-items:center;justify-content:center">
-        <img src="https://framerusercontent.com/images/U4rEhRrtEcdrw5086zC7jSkWGM8.gif?width=600&amp;height=500" alt="Halloween voucher illustration" style="width:100%;height:100%;object-fit:contain">
+      <div class="skill-block">
+        <p class="skill-block-label">Formats & output</p>
+        <div class="skill-tags">
+          <span class="tag highlight">Static – web & print</span>
+          <span class="tag highlight">Animated – After Effects</span>
+          <span class="tag">Social media</span>
+          <span class="tag">Press & PR</span>
+          <span class="tag">PDF / ePub / MOBI</span>
+          <span class="tag">Campaign multi-format</span>
+        </div>
       </div>
-      <figcaption style="font-size:28px;color:#46554C">Animated voucher illustration</figcaption>
-    </figure>
-    <figure data-anim="up" style="animation-delay:.3s;display:flex;flex-direction:column;gap:18px;min-height:0">
-      <div style="flex:1;min-height:0;background:#fff;border:1px solid #DCE7DC;border-radius:20px;overflow:hidden;display:flex;align-items:center;justify-content:center">
-        <img src="assets/zwei-poster.webp" alt="Zwei animated poster" style="width:100%;height:100%;object-fit:contain">
+      <div class="skill-block">
+        <p class="skill-block-label">Selected work</p>
+        <div class="skill-tags">
+          <span class="tag highlight">Wimdu – 30+ city guides</span>
+          <span class="tag highlight">Lingoda – Language Marathon</span>
+          <span class="tag">Pflegetiger – survey maps</span>
+          <span class="tag">Sololearn – course visuals</span>
+          <span class="tag">Lingoda – explainer series</span>
+        </div>
       </div>
-      <figcaption style="font-size:28px;color:#46554C">Zwei – animated poster</figcaption>
-    </figure>
-  </div>
-</section>
+    </div>
 
-<section data-label="Client Feedback" data-speaker-notes="Quote from Peter Springett, Product Lead at Lingoda." style="background:#F5F8F3;color:#12211A;font-family:'Uncut Sans',sans-serif;padding:100px 160px 80px;display:flex;flex-direction:column;justify-content:center;gap:56px">
-  <span data-anim="up" style="font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:.16em;color:#12693F">09 · CLIENT FEEDBACK</span>
-  <blockquote data-anim="up" style="animation-delay:.1s;font-family:'Libre Caslon Display',serif;font-size:88px;line-height:1.12;letter-spacing:-.01em;text-wrap:pretty">“Joanna was an absolute powerhouse when it came to our company profile animations. She interpreted our brief and storyboard with panache.”</blockquote>
-  <div data-anim="up" style="animation-delay:.2s;display:flex;gap:24px;align-items:center">
-    <div style="width:80px;height:3px;background:#1E8A57"></div>
-    <span style="font-size:34px;font-weight:600">Peter Springett</span>
-    <span style="font-size:32px;color:#46554C">Product Lead, Lingoda</span>
+    <div style="margin-top:16px; display:flex; gap:12px; flex-wrap:wrap;">
+      <a href="https://www.behance.net/gallery/37365291/Infographics-created-for-WIMDU"
+         target="_blank"
+         style="font-size:12px; color:var(--green); text-decoration:none; padding:6px 14px; border:0.5px solid var(--border); border-radius:99px; background:var(--white); font-weight:500;">
+        Wimdu infographics ↗
+      </a>
+      <a href="https://www.behance.net/gallery/89656081/Learning-the-language-infographics-(client-Lingoda)"
+         target="_blank"
+         style="font-size:12px; color:var(--green); text-decoration:none; padding:6px 14px; border:0.5px solid var(--border); border-radius:99px; background:var(--white); font-weight:500;">
+        Lingoda infographics ↗
+      </a>
+      <a href="https://www.behance.net/gallery/87575023/Language-Marathon-animation-Client-Lingoda"
+         target="_blank"
+         style="font-size:12px; color:var(--green); text-decoration:none; padding:6px 14px; border:0.5px solid var(--border); border-radius:99px; background:var(--white); font-weight:500;">
+        Language Marathon animation ↗
+      </a>
+      <a href="https://www.behance.net/gallery/46321601/Winter-Survey-Infographic-(client-Pflegetiger)"
+         target="_blank"
+         style="font-size:12px; color:var(--green); text-decoration:none; padding:6px 14px; border:0.5px solid var(--border); border-radius:99px; background:var(--white); font-weight:500;">
+        Pflegetiger survey infographic ↗
+      </a>
+    </div>
   </div>
-</section>
 
-<section data-label="Role Fit" data-speaker-notes="Requirements from the Graphic Designer post vs. my experience." style="background:#F5F8F3;color:#12211A;font-family:'Uncut Sans',sans-serif;padding:100px 100px 80px;display:flex;flex-direction:column;gap:52px">
-  <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid #1E8A57;padding-bottom:28px">
-    <h2 data-anim="up" style="font-size:72px;font-weight:700;letter-spacing:-.03em">Role Fit</h2>
-    <span style="font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:.16em;color:#869187">10</span>
+  <!-- SKILLS -->
+  <div class="section">
+    <p class="section-label">Skills & Tools</p>
+    <div class="skills-grid">
+      <div class="skill-block">
+        <p class="skill-block-label">Core skills</p>
+        <div class="skill-tags">
+          <span class="tag highlight">Brand Identity</span>
+          <span class="tag highlight">Motion Design</span>
+          <span class="tag highlight">Infographics & Data Viz</span>
+          <span class="tag highlight">Illustration</span>
+          <span class="tag">Design Systems</span>
+          <span class="tag">UI/UX</span>
+          <span class="tag">Art Direction</span>
+          <span class="tag">Ebook production</span>
+          <span class="tag">Print design</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <p class="skill-block-label">Design tools</p>
+        <div class="skill-tags">
+          <span class="tag highlight">Figma</span>
+          <span class="tag highlight">After Effects</span>
+          <span class="tag highlight">Illustrator</span>
+          <span class="tag highlight">InDesign</span>
+          <span class="tag">Photoshop</span>
+          <span class="tag">Rive</span>
+          <span class="tag">Jitter</span>
+          <span class="tag">Framer</span>
+          <span class="tag">Procreate</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <p class="skill-block-label">Workflow</p>
+        <div class="skill-tags">
+          <span class="tag">Jira</span>
+          <span class="tag">Notion</span>
+          <span class="tag">FigJam</span>
+          <span class="tag">Miro</span>
+          <span class="tag">Asana</span>
+          <span class="tag">AI tools</span>
+          <span class="tag">Basic HTML/CSS</span>
+        </div>
+      </div>
+    </div>
   </div>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 80px">
-    <div data-anim="up" style="animation-delay:0.1s;display:flex;flex-direction:column;gap:8px;padding:22px 0;border-bottom:1px solid #C2D2C2">
-      <span style="font-family:'JetBrains Mono',monospace;font-size:24px;color:#12693F">✓ SYSTEMS THINKER</span>
-      <span style="font-size:30px">Wimdu content system across 30+ markets</span>
-    </div>
-    <div data-anim="up" style="animation-delay:0.15s;display:flex;flex-direction:column;gap:8px;padding:22px 0;border-bottom:1px solid #C2D2C2">
-      <span style="font-family:'JetBrains Mono',monospace;font-size:24px;color:#12693F">✓ 3+ YEARS COMMUNICATION &amp; DATA-VIZ</span>
-      <span style="font-size:30px">10+ years · infographics, reports, maps</span>
-    </div>
-    <div data-anim="up" style="animation-delay:0.2s;display:flex;flex-direction:column;gap:8px;padding:22px 0;border-bottom:1px solid #C2D2C2">
-      <span style="font-family:'JetBrains Mono',monospace;font-size:24px;color:#12693F">✓ TYPOGRAPHY &amp; LAYOUT</span>
-      <span style="font-size:30px">Ebooks, city guides, reports, pitch decks</span>
-    </div>
-    <div data-anim="up" style="animation-delay:0.25s;display:flex;flex-direction:column;gap:8px;padding:22px 0;border-bottom:1px solid #C2D2C2">
-      <span style="font-family:'JetBrains Mono',monospace;font-size:24px;color:#12693F">✓ FIGMA &amp; ILLUSTRATOR</span>
-      <span style="font-size:30px">Daily tools · components, auto layout</span>
-    </div>
-    <div data-anim="up" style="animation-delay:0.3s;display:flex;flex-direction:column;gap:8px;padding:22px 0;border-bottom:1px solid #C2D2C2">
-      <span style="font-family:'JetBrains Mono',monospace;font-size:24px;color:#12693F">✓ MOTION SOFTWARE – A PLUS</span>
-      <span style="font-size:30px">After Effects, Rive, Jitter</span>
-    </div>
-    <div data-anim="up" style="animation-delay:0.35s;display:flex;flex-direction:column;gap:8px;padding:22px 0;border-bottom:1px solid #C2D2C2">
-      <span style="font-family:'JetBrains Mono',monospace;font-size:24px;color:#12693F">✓ TECH-CURIOUS · FRAMER A PLUS</span>
-      <span style="font-size:30px">Framer, HTML/CSS, Python basics, AI tools</span>
-    </div>
-    <div data-anim="up" style="animation-delay:0.4s;display:flex;flex-direction:column;gap:8px;padding:22px 0;border-bottom:1px solid #C2D2C2">
-      <span style="font-family:'JetBrains Mono',monospace;font-size:24px;color:#12693F">✓ FLUENT ENGLISH · ITALIAN A PLUS</span>
-      <span style="font-size:30px">English C1 · learning Italian</span>
-    </div>
-    <div data-anim="up" style="animation-delay:0.45s;display:flex;flex-direction:column;gap:8px;padding:22px 0;border-bottom:1px solid #C2D2C2">
-      <span style="font-family:'JetBrains Mono',monospace;font-size:24px;color:#12693F">✓ TURIN OR REMOTE (EU TIMEZONE)</span>
-      <span style="font-size:30px">Poznań, CET · I love Italy, open to moving to Turin</span>
-    </div>
-  </div>
-</section>
 
-<section data-label="Thank You" data-speaker-notes="Close with contact details." style="background:#12211A;color:#F5F8F3;font-family:'Uncut Sans',sans-serif;padding:100px;display:flex;flex-direction:column;justify-content:flex-end;gap:48px">
-  <span data-anim="up" style="font-family:'JetBrains Mono',monospace;font-size:26px;letter-spacing:.2em;color:#C2D2C2">✺ GRAPHIC DESIGNER — JOANNA ŻAMOJTA</span>
-  <h2 data-anim="up" style="animation-delay:.1s;font-size:200px;line-height:.9;letter-spacing:-.045em;font-weight:700">Grazie!</h2>
-  <div data-anim="line" style="animation-delay:.2s;transform-origin:left;height:3px;background:#1E8A57"></div>
-  <div data-anim="up" style="animation-delay:.3s;display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px 40px;font-family:'JetBrains Mono',monospace;font-size:28px;color:#DCE7DC">
-    <span>j.zamojta@gmail.com</span>
-    <span>jozamo.framer.website</span>
-    <span>linkedin.com/in/joannazamojta</span>
-    <span>dribbble.com/joannaz</span>
-    <span>vimeo.com/zamojta</span>
-  </div>
-</section>
+  <!-- EDUCATION -->
+  <div class="section">
+    <p class="section-label">Education</p>
 
-</x-import>
-</x-dc>
+    <div class="edu-grid">
+      <div class="edu-period">2021 – 2023</div>
+      <div>
+        <div class="edu-title">Postgraduate Studies – Art & Design</div>
+        <div class="edu-desc">Eugeniusz Geppert Academy of Fine Arts, Wrocław · Screenprinting, lithography, industrial design, graphic design</div>
+      </div>
+    </div>
+
+    <div class="edu-grid">
+      <div class="edu-period">2005 – 2010</div>
+      <div>
+        <div class="edu-title">MA Cultural Studies</div>
+        <div class="edu-desc">University of Wrocław · Narrative structure, critical thinking, audience analysis</div>
+      </div>
+    </div>
+
+    <div class="edu-grid">
+      <div class="edu-period">2020 – 2022</div>
+      <div>
+        <div class="edu-title">Design Courses & Mentorships</div>
+        <div class="edu-desc">UI Design – infoShare Academy · Digital Designer – Design Practice · UI Mentee – Dare IT · Motion Design – After Effects</div>
+      </div>
+    </div>
+
+    <div class="edu-grid">
+      <div class="edu-period">2024</div>
+      <div>
+        <div class="edu-title">Python Programming Basics</div>
+        <div class="edu-desc">Robisz.to · 60h · OOP, web & desktop app fundamentals</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VOLUNTEER & SIDE PROJECTS -->
+  <div class="section">
+    <p class="section-label">Volunteer & Side Projects</p>
+
+    <div class="job">
+      <div class="job-meta">
+        <div class="job-period">Recurring</div>
+        <div class="job-company">Django Girls</div>
+        <div class="job-location">Wrocław / Poland</div>
+      </div>
+      <div class="job-content">
+        <div class="job-title">Co-organiser</div>
+        <div class="job-desc">
+          <ul>
+            <li>Co-organised a recurring women-in-tech programming workshop — handling sponsor outreach, marketing materials, PR, and event logistics</li>
+            <li>Designed all visual communication and print materials for the events</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="job-meta">
+        <div class="job-period">Side project</div>
+        <div class="job-company">Barfny Świat</div>
+        <div class="job-location">Mobile app</div>
+      </div>
+      <div class="job-content">
+        <div class="job-title">UI Designer & Brand Designer</div>
+        <div class="job-desc">
+          <ul>
+            <li>Designed the full UI and visual identity for a mobile app helping cat owners calculate BARF diet portions</li>
+            <li>App published on <a href="https://play.google.com/store/apps/details?id=com.BARFnyKalkulator.barfny_kalkulator_kot&hl=pl" target="_blank" style="color:var(--green); text-decoration:underline;">Google Play</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LANGUAGES -->
+  <div class="section">
+    <p class="section-label">Languages</p>
+    <div class="lang-row">
+      <div class="lang-item">
+        <div class="lang-dot"></div>
+        <span><strong>Polish</strong> – Native</span>
+      </div>
+      <div class="lang-item">
+        <div class="lang-dot"></div>
+        <span><strong>English</strong> – Advanced C1 · daily professional use</span>
+      </div>
+      <div class="lang-item">
+        <div class="lang-dot muted"></div>
+        <span><strong>German</strong> – Basic</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <a href="https://jozamo.framer.website">jozamo.framer.website</a> &nbsp;·&nbsp;
+  j.zamojta@gmail.com &nbsp;·&nbsp;
+  © 2026 Joanna Żamojta
+</footer>
+
 </body>
 </html>
